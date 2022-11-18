@@ -87,8 +87,8 @@ public class Steering : MonoBehaviour
                 angle = Mathf.Clamp(angle, -m_maxSteerAngle, m_maxSteerAngle);
                 m_FLwheel.steerAngle = angle;
                 m_FRwheel.steerAngle = angle;
-                AngleWheel(m_FLwheel, m_FLwheelTransform);
-                AngleWheel(m_FRwheel, m_FRwheelTransform);
+                // AngleWheel(m_FLwheel, m_FLwheelTransform);
+                // AngleWheel(m_FRwheel, m_FRwheelTransform);
 
 
             }
@@ -100,40 +100,40 @@ public class Steering : MonoBehaviour
         }
 
 
-        if (m_leftController.activateAction.action.ReadValue<float>() > 0.0f)
-        {
-            Debug.Log("Brake!");
-            m_FLwheel.brakeTorque = m_breakForce;
-            m_FRwheel.brakeTorque = m_breakForce;
-            m_BLwheel.brakeTorque = m_breakForce;
-            m_BRwheel.brakeTorque = m_breakForce;
-        }
-        else
-        {
-            m_FLwheel.brakeTorque = 0;
-            m_FRwheel.brakeTorque = 0;
-            m_BLwheel.brakeTorque = 0;
-            m_BRwheel.brakeTorque = 0;
-        }
+        // if (m_leftController.activateAction.action.ReadValue<float>() > 0.0f)
+        // {
+        //     Debug.Log("Brake!");
+        //     m_FLwheel.brakeTorque = m_breakForce;
+        //     m_FRwheel.brakeTorque = m_breakForce;
+        //     m_BLwheel.brakeTorque = m_breakForce;
+        //     m_BRwheel.brakeTorque = m_breakForce;
+        // }
+        // else
+        // {
+        //     m_FLwheel.brakeTorque = 0;
+        //     m_FRwheel.brakeTorque = 0;
+        //     m_BLwheel.brakeTorque = 0;
+        //     m_BRwheel.brakeTorque = 0;
+        // }
 
-        if (m_rightController.activateAction.action.ReadValue<float>() > 0.0f)
-        {
-            m_BLwheel.motorTorque = m_accelerationForce;
-            m_BRwheel.motorTorque = m_accelerationForce;
-        }
-        else
-        {
-            m_BLwheel.motorTorque = 0;
-            m_BRwheel.motorTorque = 0;
-        }
+        // if (m_rightController.activateAction.action.ReadValue<float>() > 0.0f)
+        // {
+        //     m_BLwheel.motorTorque = m_accelerationForce;
+        //     m_BRwheel.motorTorque = m_accelerationForce;
+        // }
+        // else
+        // {
+        //     m_BLwheel.motorTorque = 0;
+        //     m_BRwheel.motorTorque = 0;
+        // }
     }
 
-    void AngleWheel(WheelCollider w, Transform t)
-    {
-        Vector3 pos;
-        Quaternion rot;
+    // void AngleWheel(WheelCollider w, Transform t)
+    // {
+    //     Vector3 pos;
+    //     Quaternion rot;
 
-        w.GetWorldPose(out pos, out rot);
-        t.rotation = rot;
-    }
+    //     w.GetWorldPose(out pos, out rot);
+    //     t.rotation = rot;
+    // }
 }
